@@ -1,28 +1,28 @@
-const replaceTextInJson = (json, textToReplace, textToReplaceWith) => {
-  // TODO: null checking, error handling
-  if (typeof json !== `object`) return null;
-  if (
-    !(typeof textToReplace === `string`) &&
-    !(textToReplace instanceof RegExp)
-  )
-    return null;
-  if (typeof textToReplaceWith !== `string`) return null;
+const replaceTextInJson = (json, pattern, replacement) => {
+  if (typeof json !== `object`)
+    throw new Error(
+      `Error in replaceTextInJson: json must be a valid object.\n\njson: ${json}`
+    );
+
+  if (!(typeof pattern === `string`) && !(pattern instanceof RegExp))
+    throw new Error(
+      `Error in replaceTextInJson: pattern must be a valid string or RegExp.\n\npattern: ${pattern}`
+    );
+
+  if (typeof replacement !== `string`)
+    throw new Error(
+      `Error in replaceTextInJson: replacement must be a valid string.\n\nreplacement: ${replacement}`
+    );
 
   try {
-    const textToReplaceRegex =
-      textToReplace instanceof RegExp
-        ? textToReplace
-        : new RegExp(textToReplace, `g`);
-    const jsonStringified = JSON.stringify(json);
-    const jsonStringifiedReplaced = jsonStringified.replace(
-      textToReplaceRegex,
-      textToReplaceWith
+    return JSON.parse(
+      JSON.stringify(json).replace(
+        pattern instanceof RegExp ? pattern : new RegExp(pattern, `g`),
+        replacement
+      )
     );
-    const jsonParsedAfterReplace = JSON.parse(jsonStringifiedReplaced);
-
-    return jsonParsedAfterReplace;
   } catch (e) {
-    throw new Error(e);
+    throw new Error(`Error in replaceTextInJson: ${e}`);
   }
 };
 
