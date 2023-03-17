@@ -1,0 +1,36 @@
+{
+  "env": {
+    "browser": true,
+    "es2022": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:prettier/recommended"
+  ],
+  "ignorePatterns": ["dist", "node_modules"],
+  "parserOptions": {
+    "impliedStrict": true,
+    "sourceType": "module"
+  },
+  "root": true,
+  "rules": {
+    "block-scoped-var": "error",
+    "camelcase": "error",
+    "eqeqeq": "error",
+    "no-empty-function": "error",
+    "no-eval": "error",
+    "no-implied-eval": "error",
+    "no-invalid-this": "error",
+    "no-script-url": "error",
+    "no-unneeded-ternary": "error",
+    "no-use-before-define": "error",
+    "no-var": "error",
+    "prefer-const": "error",
+    "prefer-template": "error",
+    "require-await": "error",
+    "sort-imports": "error",
+    "spaced-comment": "error"
+  }
+}

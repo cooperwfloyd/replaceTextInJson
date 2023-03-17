@@ -1,0 +1,31 @@
+{
+  "env": {
+    "targets": {
+      "node": 18
+    }
+  },
+  "jsc": {
+    "baseUrl": ".",
+    "loose": false,
+    "minify": {
+      "compress": {
+        "unused": true
+      },
+      "mangle": true
+    },
+    "parser": {
+      "decorators": false,
+      "dynamicImport": false,
+      "syntax": "ecmascript"
+    },
+    "target": "es2022"
+  },
+  "minify": true,
+  "module": {
+    "type": "commonjs",
+    "lazy": false,
+    "noInterop": false,
+    "strict": true,
+    "strictMode": true
+  }
+}
