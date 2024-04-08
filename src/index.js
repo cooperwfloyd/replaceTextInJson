@@ -1,3 +1,5 @@
+// TODO: switch from this method to a recursive loop that checks if the value is a string and performs the replacement if so to prevent data loss caused by parsing stringified JSON. might want to explore doing a deep clone of the object instead as to not operate on the existing object.
+
 const replaceTextInJson = (json, pattern, replacement) => {
   if (typeof json !== `object`)
     throw new Error(
